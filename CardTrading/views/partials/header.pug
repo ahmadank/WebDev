@@ -1,0 +1,19 @@
+include ./style
+	div#header
+		if (user.loggedin)
+			| 
+			button.button(onclick="location.href = 'http://localhost:3000'") Hello #{user.username}
+			| 
+			button.button(onclick="location.href = 'http://localhost:3000'") Profile
+			| 
+			button.button(onclick="location.href = 'http://localhost:3000/logout'") Logout
+		else
+			| 
+			form(action='/login' method='post')
+				p.font Username: 
+					input(type='text' name='username' required='')
+				p.font &#x9;Password: 
+					input(type='password' name='password' required='')
+					button.margin-left(type='submit') &nbsp&nbsp&nbspLogin&nbsp&nbsp&nbsp
+			if(user.auth)
+				p.error WrongUser Name Or Password

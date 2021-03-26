@@ -1,0 +1,36 @@
+include ../partials/header
+body
+	table(style='width:30%')
+		tr
+			td.td1
+				h Your Are Trading With #{trades.userTradingWith}
+	table(style='width:60%')
+		tr
+			td.td1
+				if(trades.cardGivenId)
+					h You Are Giving Him: 
+						br
+						for card in trades.cardGivenId
+							h #{card}
+							br
+				else
+					h You Dont Give Him Anything
+			td.td1
+				if(trades.cardTakenId)
+					h He is Giving You:
+						br
+						for card in trades.cardTakenId
+							h #{card}
+							br
+				else
+					h He Does Not Give You Anything
+	if(trades.tradeInit==user.username)
+		form(action='/trade/response' method='post')
+			button.button3(name='ignore' type='submit' value=[trades.tradeId,trades.userid]) Cancel The Trade Request
+	else
+		form(action='/trade/response' method='post')
+			button.wideBttn.blink(name='accept' type='submit' value=trades.tradeId) Accept
+			button.blink.wideBttn.button3(name='ignore' type='submit' value=[trades.tradeId,trades.userid]) Ignore
+				
+		
+					

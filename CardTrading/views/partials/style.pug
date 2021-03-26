@@ -1,0 +1,145 @@
+html
+	head
+		style.
+			.error {
+				color: 	#FF0000;
+				font-size: 20px;
+				margin-left: 15px;
+			}
+			.font{
+				font-size: 25px;
+				color: black;
+			}
+			.fade-in{
+				animation: fadeIn 5s;
+			}
+			@keyframes fadeIn{
+				from {
+					opacity:0
+				}
+				to{
+					opacity:1
+				}
+			}
+			 @keyframes blink {
+				 0%{
+					 opacity:1;
+				 }
+				50% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			.blink {
+				animation-name: blink;
+				animation-duration: 4.5s;
+				animation-iteration-count: infinite;
+			}
+			#header {
+				margin-bottom: 15px;
+			}
+			.button {
+				padding: 4px 10px;
+				text-align: center;
+				font-size: 12px;
+				background-color: #0000FF;
+				color: white;
+			}
+			.button1 {
+				padding: 10px 10px;
+				font-size: 20px;
+				background-color: #0000FF;
+				border-radius: 7px;
+				color: white;
+			} 
+			.button2 {
+				border-radius: 7px;
+				float: right;
+				padding: 4px 10px;
+				font-size: 12px;
+			}
+			.accpetBtn {
+				border-radius: 7px;
+				float: right;
+				padding: 7px 30px;
+				font-size: 12px;
+			}
+			.button3 {
+				background-color: #0000FF;
+				color: white;
+			}
+			.wideBttn{
+				padding: 7px 50px;
+				border-radius: 7px;
+			}
+			.goHome{
+				padding: 15px 15px;
+				border-radius: 7px;
+				background-color: #00e5ff
+			} 
+			td{
+				vertical-align: top;
+				text-align: left;
+				width: 300px;
+				padding: 25px;
+				box-sizing: border-box;
+				font-size: 20px;
+				color: black;
+				text-shadow:
+					-1px -1px 0 red,
+					1px -1px 0 red,
+					-1px 1px 0 red,
+					1px 1px 0 red
+			}
+			a{
+				color:black;
+			}
+			.td1 {
+				border: 1px solid #000;
+			}
+			.td2{
+				border-top:    1px solid black;
+				border-left:  1px solid black; 
+				border-bottom: 1px solid black;
+				border-right: 2px dashed black;
+			}
+			.td3{
+				border-top:    1px solid black;
+				border-right:  1px solid black; 
+				border-bottom: 1px solid black;
+			}
+			.d-inline-block {
+				display: inline-block;
+			}
+			.float-left {
+				float: left;
+			} 
+			.margin-left{
+				margin-left: 10px;
+			}
+
+			#users {
+				min-height: 100px;
+			}
+			body {
+				background: url("/background.png");
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+			.img1{
+				background: url("/back.png");
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+			.trap{
+				width:250px;
+				margin-left: 10px;
+				display: inline-block;
+			}
+			.give{
+				display: flex;
+				flex-direction: row;
+			}
+			

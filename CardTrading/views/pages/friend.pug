@@ -1,0 +1,22 @@
+html
+	head
+		style.
+			td {
+				vertical-align: top;
+				text-align: left;
+				width: 300px;
+				padding: 25px;
+				box-sizing: border-box;
+				border: 1px solid black;
+			}
+	body
+		include ../partials/header
+		table(style='width:50%')
+			tr
+				td 
+					h1 #{otherU.username}'s Cards
+					ul
+						each card in otherU.cards
+							li
+								a(href="/cards/" + card._id) #{card.name}
+								br

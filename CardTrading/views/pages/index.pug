@@ -1,0 +1,12 @@
+h1 Welcome To Playing Cards!
+include ../partials/header
+		title Home
+body
+	div#main
+		h2.fade-in No Account? No Problem
+			button.margin-left.button1(onclick="location.href = 'http://localhost:3000/register'") Click Me To Register!!
+	if(user.auth)
+		table(style='width:50%')
+			td 
+				img.trap(src="back.png")
+				img.fade-in.trap(src="incorrect.jpeg")

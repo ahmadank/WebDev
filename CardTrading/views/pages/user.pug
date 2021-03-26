@@ -1,0 +1,93 @@
+include ../partials/header
+body
+	table(style='width:100%')
+		tr
+			td.td1.img1
+				div#refresh
+					h1 #{otherU.username}'s Cards
+					ul
+						each card in otherU.cards
+							li
+								a(href="/cards/" + card._id) #{card.name}
+								br
+			td.td1
+				div#refresh1
+					h1 #{otherU.username}'s Friends
+					if otherU.friends
+						each req in otherU.friends
+							li
+								a(href="/users/" + req.userid) #{req.user}
+								br
+								br
+					else
+						p #{otherU.username} has no friends
+			td.td1
+				h1 Add Friends
+				p Search By Name: 
+					input(type='text' id='username' value='' onkeyup="search();")
+				div#users
+				h1 Pending Friend Request
+				br
+				div#request
+					if otherU.friendreq
+						each req in otherU.friendreq
+							p #{req.user} 
+								form(action='/friends/accept' method='post')
+									button.accpetBtn(name='accept' type='submit' value=req) Accept
+									button.accpetBtn.button3(name='ignore' type='submit' value=req.userid) Ignore
+									br
+					else
+						a No friend requests
+
+	table(style='width:100%')
+		tr
+			td.td1(style='width:33.33%')
+				div#refresh2
+					h1 Pending Trade Request
+					br
+					if(otherU.tradereq)
+						if(otherU.tradereq.length==0)
+							p #{otherU.tradereq.length} Current Trade Requsts
+						else
+						each req in otherU.tradereq
+							if req.tradeInit==user.username
+								a(href="/trade/" + req.tradeId) Requested Trade With #{req.userTradingWith}
+								br
+							else
+								a(href="/trade/" + req.tradeId) #{req.userTradingWith} Has Requested A Trade
+								br
+			td.td2
+				h1 propose a Trade
+				br
+				if otherU.cards.length
+					p Select your cards add to the trade
+						br
+				else
+					p You dont own any cards
+				form(onchange='myCardsTrade()')
+					each card in otherU.cards
+						input.mycards(type='checkbox' value=card._id name=card.name)
+						label(for=card.name) 
+							a(href="/cards/" + card._id) #{card.name}
+						br
+			td.td3
+				h1
+				br
+				p
+					br
+				form#tradeform()
+					select(id='id' onchange="userRequestedTrade()")
+						optgroup(label='Select A friend To Trade With')
+						option(name='' value='') Select A friend
+						if otherU.friends
+							each req in otherU.friends
+								option(value=req.userid name=req.user) #{req.user}
+				//- when ever the user presses the button call that function
+				form(onchange='friendTrade()')
+					br
+					div#tradecards
+				button#submitTrade Submit Trade Request
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js')
+	script
+		include ./client.js
+	//- script(src='/client.js')

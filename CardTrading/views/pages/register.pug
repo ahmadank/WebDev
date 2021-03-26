@@ -1,0 +1,15 @@
+include ../partials/style
+	h1 Please Register Below
+		button.margin-left.goHome(onclick="location.href = 'http://localhost:3000'") Click Me To Go Back To the Home Page
+body
+	br
+	<form action="/register" method="post">
+		p.font UserName : 
+			Username: <input type="text" name="username" required>
+		p.font Password : 
+			Password: <input type="password" name="password" required>
+				<button type="submit">Register</button>
+	</form>
+	if (user.fail)
+		p.error Username Already Taken
+	
