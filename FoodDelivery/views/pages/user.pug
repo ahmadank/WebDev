@@ -1,0 +1,44 @@
+html
+	head
+		title User: - #{otherU.username}
+body
+	include ../partials/header
+	br
+	if otherU.ownprofile
+		h1 This is #{user.username} Profile
+		form(action=("/users/" + user.id2) method='post')
+			legend Your Account Privacy is set to
+			if otherU.privacy
+				input#privacy(type='radio' name='privacy' value='true' checked)
+				label(for='privacy') Private
+				br
+				input#privacy(type='radio' name='privacy' value='false')
+				label(for='privacy') Not Private
+				br
+			if !otherU.privacy
+				input#privacy(type='radio' name='privacy' value='true')
+				label(for='privacy') Private
+				br
+				input#privacy(type='radio' name='privacy' value='false' checked)
+				label(for='privacy') Not Private
+				br
+			button(type='submit') &nbsp&nbsp&nbspSave&nbsp&nbsp&nbsp
+			br
+		.privacy
+			p Your privacy is now Set to #{otherU.privacy}
+		br
+		button(onclick="window.location.href = '/logout';") Click Me To Logout
+		br
+		br
+	if !otherU.ownprofile && otherU.privacy
+		p hi #{otherU.username} would like you to leave him alone 
+	if !otherU.ownprofile && !otherU.privacy
+		p #{otherU.username} sends you their greetings
+	if ((otherU.ownprofile && otherU.purchases || !otherU.ownprofile && !otherU.privacy) && otherU.purchases.length > 0)
+		|Orders Placed:
+		br
+		each purchase in otherU.purchases
+			a(href="/orders/" + purchase._id) #{purchase._id}
+			br
+	if (otherU.ownprofile && otherU.purchases.length===0  || otherU.purchases.length===0 && !otherU.privacy)
+		h1 #{otherU.username} Has Not Placed Any Orders

@@ -1,0 +1,20 @@
+html
+	head
+		title Order #{result._id}
+body
+	include ../partials/header
+	h1 Order Number ##{result._id}
+	p Restaurant Name: #{result.restaurantName}
+	p Placed By: #{result.nameOfBuyer}
+	br
+	p Order Contents 
+	each order in result.order
+		each item in order
+			if(item>0)
+				p Quantity: #{item}
+			else
+				p Order Consisted Of: #{item}
+				br
+	p SubTotal #{result.subtotal.toFixed(2)}
+	p Tax #{result.tax.toFixed(2)}
+	p Total #{result.total.toFixed(2)}

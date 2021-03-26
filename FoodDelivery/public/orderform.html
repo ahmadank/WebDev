@@ -1,0 +1,54 @@
+<head>
+    <style>
+        .Welcome{
+            background-image: url(https://as2.ftcdn.net/jpg/01/84/91/77/500_F_184917737_1q44vKP8RiDwzq0yojalMPW4bBSIoJ4g.jpg); /* Picture taken from the internet */
+            color: aqua;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+            height: 100px;
+            text-align: center;
+        }
+        td{
+    border-bottom: 1px groove;
+    padding: 10px 0;
+        }
+		.column {
+			float: left;
+		}
+
+		.left{
+			width: 10%;
+		}
+		
+		.right {
+			width: 25%;
+		}
+
+		.middle {
+			width: 65%;
+		}
+		</style>
+	</head>
+	<body>
+    <div class="Welcome">
+    <h1><br>Welcome to Food Land
+    </h1> </div>
+    <div headers>
+    <body onload="init()">
+		<div><a href="/">home</a>
+		<a href="/users">Users</a>
+		<a href="/order">Order Food</a>
+		<a href="/profile">Your Profile</a>
+        <a href="/logout">Click me to log out</a></div>
+    </div>
+        <select id="restaurant-select"></select>
+		<br><br>
+		<div id="info"></div>
+		<div id="main">
+			<div class="column left" id="left"></div>
+			<div class="column middle" id="middle"></div>
+			<div class="column right" id="right"></div>
+		</div>
+		<script src="orderform.js"></script>
+	</body>
+
+</html>

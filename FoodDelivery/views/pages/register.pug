@@ -1,0 +1,21 @@
+html
+	head
+		style.
+			p1 {
+				color: 	#FF0000;
+			}
+		title Register
+		include ../partials/header
+		h Hungry? Why Not Register And Start Eating!
+body
+	br
+	<form action="/register" method="post">
+		p UserName : 
+			Username: <input type="text" name="username" required>
+		p Password : 
+			Password: <input type="password" name="password" required>
+				<button type="submit">Login</button>
+	</form>
+	if (user.fail)
+		p1 &nbsp&nbsp&nbsp&nbspUsername Already Taken
+	

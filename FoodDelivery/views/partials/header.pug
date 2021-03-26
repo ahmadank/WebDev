@@ -1,0 +1,37 @@
+html
+	head
+		style.
+			p1 {
+				color: 	#FF0000;
+			}
+	div#header
+		a(href="/") Home
+		| 
+		a(href="/users") Users
+		| 
+		if(!user.loggedin)
+			a(href="/register") Register
+		| 
+		if (user.loggedin)
+			| 
+			a Hello #{user.username}
+			| 
+			a(href="/order") Order Food
+			| 
+			a(href="/users/"+user.id2) Click me to go to you Profile
+			| 
+			a(href="/logout") logout
+			
+		else
+			| 
+			form(action='/login' method='post')
+				| Username: 
+				input(type='text' name='username' required='')
+				| &#x9;Password: 
+				input(type='password' name='password' required='')
+				button(type='submit') &nbsp&nbsp&nbspLogin&nbsp&nbsp&nbsp
+			if(user.auth)
+				p1 Wrong User Name Or Password
+			if(user.loggedin)
+				p1 A User is Already Logged In
+		

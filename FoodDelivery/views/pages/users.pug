@@ -1,0 +1,12 @@
+html
+	head
+		title Users
+body
+	include ../partials/header
+	br
+	
+	each u in otherU
+		if (!u.privacy)
+			a(href="/users/" + u._id) #{u.username}
+			br
+
