@@ -1,0 +1,17 @@
+html
+    head
+        title Home
+body
+    include ../partials/header
+    <form action="/" method="post">
+        h3 Search :
+            search: <input type="text" name="search" required style="width: 508px;">    
+    </form>
+    h4 For The Search |&nbsp
+        each query in results[0].query 
+            p1 #{query} &nbsp
+        p1 | Here are the top 10 links:    
+    each result in results
+        p1 #{result.id} From the link
+        a(href="https://people.scs.carleton.ca/~davidmckenney/fruitgraph/"+result.id+".html") https://people.scs.carleton.ca/~davidmckenney/fruitgraph/#{result.id} <br>
+        

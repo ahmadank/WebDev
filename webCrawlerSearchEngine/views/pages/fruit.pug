@@ -1,0 +1,27 @@
+html
+    head
+        title Home
+body
+    include ../partials/header
+h2 Website Id #{fruit.id}
+h2 Website Link #{fruit.url}
+h3 List of outgoing Links 
+h5
+    for link in fruit.outgoingLinks 
+        a(href=link) #{link}
+h3 List of Incoming Links
+h5
+    for link in fruit.incomingLinks 
+        a(href=link) #{link}
+h3 These are the keywords on that page
+for word in index.query 
+    if word.text == '' 
+    else
+        p1 The word '#{word.text}' appeared #{word.count} 
+        if word.count == 1
+            p1 time
+        else 
+            p1 times
+        <br>
+h3 This page had a PageRank score: #{index.pageRank.toFixed(6)}
+        

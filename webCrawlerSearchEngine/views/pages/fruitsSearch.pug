@@ -1,0 +1,26 @@
+html
+    head
+        title Home
+body
+    include ../partials/header
+h1 Hey there!
+
+    <form action="/fruits" method="post">
+        h5 Fruit Search : <br>
+            search: <input type="text" name="search" required style="width: 508px;">
+        h5 Number of search entries 1-50: 
+            search: <input type="text" name="entries" style="width: 100px;">
+        h5 Boost By Page Rank:    
+            <input type="checkbox" value="true" name="checkBoost">
+        <input type="submit">        
+    </form>
+
+    if(results)
+        h4 For The Search |&nbsp
+            each query in search
+                p1 #{query} &nbsp
+            p1 | Here are the top results: <br>    
+            each result,index in results
+                h2 *#{index + 1}  
+                    a(href="/fruits/"+result.id) #{result.id} <br>
+        

@@ -1,0 +1,16 @@
+html
+    head
+        title Home
+body
+    include ../partials/header
+h2 Website Id #{personal.id}
+h2 Website Link #{personal.url}
+h3 List of outgoing Links 
+for link in personal.outgoingLinks 
+    a(href=link) #{link} <br>
+h3 List of Incoming Links
+for link in personal.incomingLinks 
+    a(href=link) #{link} <br>
+h3 Here is the data for that page 
+h5 #{personal.data}
+h3 This page had a PageRank score: #{index.pageRank.toFixed(6)}
