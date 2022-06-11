@@ -1,1 +1,1 @@
-This repo web driven code
+This repo contains smaller web driven application that I have worked on 
